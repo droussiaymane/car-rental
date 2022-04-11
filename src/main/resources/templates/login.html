@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns="http://www.w3.org/1999/html">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Default Description">
+  <meta name="keywords" content="fashion, store, E-commerce">
+  <meta name="robots" content="*">
+  <title>ATLAS GO CAR</title>
+<link rel="icon" th:href="@{images/faviconicon.ico}" type="image/x-icon">
+  <!-- CSS Style -->
+  <link rel="stylesheet" type="text/css" th:href="@{stylesheet/bootstrap.min.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{stylesheet/font-awesome.css}" media="all">
+  <link rel="stylesheet" type="text/css" th:href="@{stylesheet/bootstrap-select.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{stylesheet/revslider.css}" >
+  <link rel="stylesheet" type="text/css" th:href="@{stylesheet/owl.carousel.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{stylesheet/owl.theme.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{stylesheet/jquery.bxslider.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{stylesheet/jquery.mobile-menu.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{stylesheet/style.css}" media="all">
+  <link rel="stylesheet" type="text/css" th:href="@{stylesheet/responsive.css}" media="all">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700,800' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Teko:300,400,500,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Saira+Condensed:300,400,500,600,700,800" rel="stylesheet">
+</head>
+<body>
+<div id="page">
+
+  <header>
+    <div class="container">
+      <div class="row">
+        <div id="header">
+          <div class="header-container">
+            <div class="header-logo"> <a href="#" title="Car HTML" class="logo">
+              <div><img style=" width:1500%;" th:src="@{images/logo.png}" alt="Car Store"></div>
+            </a> </div>
+            <div class="header__nav">
+              <div class="header-banner">
+                <div class="col-lg-6 col-xs-12 col-sm-6 col-md-6">
+                  <div class="assetBlock">
+                    <div style="height: 20px; overflow: hidden;" id="slideshow">
+                      <p style="display: block;">Journées chaudes! - <span>50%</span> Préparez-vous pour l'été ! </p>
+                      <p style="display: none;">Économiser jusqu'à <span>40%</span> Dépêchez-vous offre limitée!</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-lg-6 col-xs-12 col-sm-6 col-md-6 call-us"><i class="fa fa-camera-retro"></i> Mon - Fri : 09am à 06pm <i class="fa fa-phone"></i> +212 661815950 </div>
+              </div>
+              <div class="fl-header-right">
+                <div class="fl-links">
+                  <div class="no-js"> <a title="" class="clicker"></a>
+                    <div class="fl-nav-links">
+
+                      <!--fl-language-->
+                      <!-- END For version 1,2,3,4,6 -->
+
+                      <!--fl-currency-->
+                      <!-- END For version 1,2,3,4,6 -->
+                      <h3>My Acount</h3>
+                      <ul class="links">
+                        <li><a href="#" title="My Account">Login</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!--mini-cart-->
+
+                <!--links-->
+              </div>
+              <div class="fl-nav-menu">
+                <nav>
+                  <div class="mm-toggle-wrap">
+                    <div class="mm-toggle"><i class="fa fa-bars"></i><span class="mm-label">Menu</span> </div>
+                  </div>
+                  <div class="nav-inner">
+                    <!-- BEGIN NAV -->
+                    <ul id="nav" class="hidden-xs">
+
+                      <!--level0-wrapper dropdown-6col-->
+                      <!--mega menu-->
+
+                    </ul>
+                    <!--nav-->
+                  </div>
+                </nav>
+              </div>
+            </div>
+
+            <!--row-->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="page-heading">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="page-title">
+            <h2>CONNECTEZ VOUS CHEZ ATLAS GO CAR</h2>
+          </div>
+        </div>
+        <!--col-xs-12-->
+      </div>
+      <!--row-->
+    </div>
+    <!--container-->
+  </div>
+
+
+  <!-- BEGIN Main Container -->
+
+  <div class="main-container col1-layout wow bounceInUp animated animated" style="visibility: visible;">
+
+    <div class="main">
+      <div class="account-login container">
+        <!--page-title-->
+
+          <input name="form_key" type="hidden" value="EPYwQxF6xoWcjLUr">
+          <fieldset class="col2-set">
+            <div class="col-1 new-users">
+              <strong>Nouveau client</strong>
+              <div class="content">
+
+                <p>En créant un compte sur notre boutique, vous pourrez parcourir le processus de paiement plus rapidement, stocker plusieurs adresses de livraison, afficher et suivre vos commandes dans votre compte et plus encore.</p>
+                <div class="buttons-set">
+                  <button type="button" title="Create an Account" class="button create-account" onClick=""><span><span>Disponnible prochainemnt</span></span></button>
+                </div>
+              </div>
+            </div>
+            <div >
+              <div th:if="${param.error}" class="text-danger">
+                <div class="alert alert-danger" role="alert">
+                  Les informations sont incorrectes !
+                </div>
+              </div>
+              <div th:if="${param.logout}" class="text-info">
+                <div class="alert alert-info" role="alert">
+                  Vous êtes déconnecté !
+                </div>
+              </div>
+            </div>
+            <div class="col-2 registered-users">
+              <strong>Se connecter</strong>
+              <div class="content">
+
+                <p>Si vous avez un compte chez nous, veuillez vous connecter.</p>
+                <form th:action="@{/login}" method="post">
+
+                  <ul class="form-list">
+                  <li>
+                    <label for="email">Email Address<em class="required">*</em></label>
+                    <div class="input-box">
+                      <input type="email" name="email" id="email" required class="input-text required-entry validate-email" title="Email Address">
+                    </div>
+                  </li>
+                  <li>
+                    <label for="pass">Password<em class="required">*</em></label>
+                    <div class="input-box">
+                      <input type="password" name="password" class="input-text required-entry validate-password" required id="pass" title="Password">
+                    </div>
+                  </li>
+                </ul>
+
+
+
+
+                <p class="required">* Champs obligatoires</p>
+
+
+
+                <div class="bns-et">
+
+                  <button type="submit" class="button"><span>Se connecter</span></button>
+
+                </div>
+                </form><!--buttons-set-->
+              </div>
+
+              <!--content-->
+            </div> <!--col-2 registered-users-->
+          </fieldset> <!--col2-set-->
+
+      </div> <!--account-login-->
+
+    </div><!--main-container-->
+
+  </div> <!--col1-layout-->
+
+
+
+
+
+  <!-- For version 1,2,3,4,6 -->
+
+  <footer>
+    <!-- BEGIN INFORMATIVE FOOTER -->
+    <div class="footer-inner">
+      <div class="our-features-box wow bounceInUp animated animated">
+        <div class="container">
+          <ul>
+            <li>
+              <div class="feature-box">
+                <div class="icon-truck"><img src="images/world-icon.png" alt="Image"></div>
+                <div class="content">
+                  <h6>World's #1</h6>
+                  <p>Largest Auto portal</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="feature-box">
+                <div class="icon-support"><img src="images/car-sold-icon.png" alt="Image"></div>
+                <div class="content">
+                  <h6>Car Sold</h6>
+                  <p>Every 4 minute</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="feature-box">
+                <div class="icon-money"><img src="images/tag-icon.png" alt="Image"></div>
+                <div class="content">
+                  <h6>Offers</h6>
+                  <p>Stay updated pay less</p>
+                </div>
+              </div>
+            </li>
+            <li class="last">
+              <div class="feature-box">
+                <div class="icon-return"><img src="images/compare-icon.png" alt="Image"></div>
+                <div class="content">
+                  <h6>Compare</h6>
+                  <p>Decode the right car</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="newsletter-row">
+        <div class="container">
+          <div class="row">
+
+            <!-- Footer Newsletter -->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col1">
+              <div class="newsletter-wrap">
+                <h5>Newsletter</h5>
+                <h4>Soyez informé de toutes les mises à jour !</h4>
+                <form action="#" method="post" id="newsletter-validate-detail1">
+                  <div id="container_form_news">
+                    <div id="container_form_news2">
+                      <input type="text" name="email" id="newsletter1" title="Sign up for our newsletter" class="input-text required-entry validate-email" placeholder="Enter your email address">
+                      <button type="submit" title="Subscribe" class="button subscribe"><span>Subscribe</span></button>
+                    </div>
+                    <!--container_form_news2-->
+                  </div>
+                  <!--container_form_news-->
+                </form>
+              </div>
+              <!--newsletter-wrap-->
+            </div>
+          </div>
+        </div>
+        <!--footer-column-last-->
+      </div>
+
+
+      <!--container-->
+    </div>
+    <!--footer-inner-->
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4">
+            <div class="social">
+              <ul>
+                <li class="fb"><a href="#"></a></li>
+                <li class="tw"><a href="#"></a></li>
+                <li class="linkedin"><a href="#"></a></li>
+                <li class="youtube"><a href="#"></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-4 col-xs-12 coppyright"><a target="_blank" href="#">ATLAS GO CAR</a></div>
+          <div class="col-xs-12 col-sm-4">
+            <div class="payment-accept"> <img src="images/payment-1.png" alt=""> <img src="images/payment-2.png" alt=""> <img src="images/payment-3.png" alt=""> <img src="images/payment-4.png" alt=""> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- BEGIN SIMPLE FOOTER -->
+  </footer>
+  <!-- End For version 1,2,3,4,6 -->
+
+</div>
+<!--page-->
+<!-- Mobile Menu-->
+<div id="mobile-menu">
+  <ul>
+    <li>
+    </li>
+    <li class="active"> <a class="level-top" href="#"><span>Home</span></a></li>
+
+      <!--mega menu-->
+    </li>
+
+    <li><a href="#">Custom</a></li>
+  </ul>
+</div>
+
+<!-- JavaScript -->
+<script  th:src="@{js/jquery.min.js}"></script>
+<script  th:src="@{js/bootstrap.min.js}"></script>
+<script th:src="@{js/bootstrap-slider.min.js}"></script>
+<script th:src="@{js/bootstrap-select.min.js}"></script>
+<script th:src="@{js/parallax.js}"></script>
+<script  th:src="@{js/revslider.js}"></script>
+<script  th:src="@{js/common.js}"></script>
+<script th:src="@{js/jquery.bxslider.min.js}"></script>
+<script  th:src="@{js/owl.carousel.min.js}"></script>
+<script th:src="@{js/jquery.mobile-menu.min.js}"></script>
+<script th:src="@{js/countdown.js}"></script>
+
+
+</body>
+
+</html>

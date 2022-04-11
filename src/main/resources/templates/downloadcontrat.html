@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>ATLAS GO CAR</title>
+ <link rel="icon" th:href="@{images/faviconicon.ico}" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+
+    <style>
+    .zoom-out {
+  /* CSS zoom property not supported by html2canvas */
+  transform: scale(0.8);
+  transform-origin: 0 0;
+  margin: 0 -25% 0 0;
+}
+</style>
+</head>
+<body >
+<div>
+    <div >
+        <div id="myclass" class="myclass">
+            <div style="width:618px" class="container" >
+                <div class="row">
+                    <div class="col">
+                        <img width="595px" height="100px" th:src="@{images/coveratlasgocar.png}">
+                    </div>
+                </div>
+                <div class="col" style="margin-top: 10px;">
+                    <table  class="table table-bordered " style="font-size: small;">
+                        <thead >
+                        <tr>
+                            <th scope="col" style="background-color: #d6d6d6;">Client</th>
+                            <th scope="col"style="background-color: #d6d6d6;">VEHICULE</th>
+                            <th scope="col"style="background-color: #d6d6d6;">LOCATION</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr style="font-size: small;">
+                            <td><div>
+                                <p><span style="font-weight: bold;">Locataire</span> : <span th:text="${reservation.client.nom+' '+reservation.client.prenom}">Aymane droussi</span></p>
+                                <p><span style="font-weight: bold;">Tél</span> : <span th:text="${reservation.client.telephone}">0636686670</span></p>
+                            </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <p><span style="font-weight: bold;">Marque/Modèle</span> : <span th:text="${reservation.voiture.marque}">ferrari</span></p>
+                                    <p><span style="font-weight: bold;">Immatriculation</span> : <span th:text="${reservation.voiture.immatriculation}">0636686670</span></p>
+                                    <p><span style="font-weight: bold;">Type</span> : <span th:text="${reservation.voiture.type}">0636686670</span></p>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <p><span style="font-weight: bold;">Début</span> : <span th:text="${#dates.format(reservation.dateDebut, 'dd-MM-yyyy')}" >20/03/2022</span> à <span th:text="${reservation.lieuDeLivraison}">casa</span></p>
+                                    <p><span style="font-weight: bold;">Fin</span> : <span th:text="${#dates.format(reservation.dateFin, 'dd-MM-yyyy')}" >20/03/2022</span> à <span th:text="${reservation.lieuDeRestitution}">casa</span></p>
+                                    <p><span style="font-weight: bold;">Prix total</span> : <span th:text="${reservation.paiement.montantTotal}+' DH'">0636686670</span></p>
+
+                                </div>
+                            </td>
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col">
+                    <table  class="table table-bordered " style="font-size: small;">
+                        <thead >
+                        <tr>
+                            <th scope="col"style="background-color: #d6d6d6;">DEPART</th>
+                            <th scope="col"style="background-color: #d6d6d6;">VEHICULE</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr style="font-size: small;">
+                            <td>
+                                <table class="table">
+
+                                    <tbody>
+                                    <tr style="border: solid;    border-width: thin;
+
+                                      border-color: #404040;   font-weight: bold;
+                                      ;">
+
+                                        <td  >Kms compteur : </td>
+                                        <td></td>
+
+                                    </tr>
+                                    <tr  style="border: solid;   height: 100px;  border-width: thin;
+
+                                      border-color: #404040; font-weight: bold;
+                                      ;">
+
+                                        <td>Carburant :</td>
+                                        <td>
+                                            <img     width="121px" th:src="@{images/carburant.png}">
+                                        </td>
+                                    </tr>
+                                    <tr  style="border: solid;    border-width: thin;
+
+                                      border-color: #404040;    height: 60px; font-weight: bold;
+                                      ;">
+
+                                        <td >Commentaire :</td>
+                                        <td></td>
+                                    </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td>
+                                <img th:src="@{images/car.png}"     height="213px"
+                                     width="264px">
+                            </td>
+
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col">
+                    <table  class="table table-bordered " style="font-size: small;">
+                        <thead >
+                        <tr>
+                            <th scope="col"style="background-color: #d6d6d6;">RETOUR</th>
+                            <th scope="col"style="background-color: #d6d6d6;">VEHICULE</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr style="font-size: small;">
+                            <td>
+                                <table class="table">
+
+                                    <tbody>
+                                    <tr style="border: solid;    border-width: thin;
+
+                                      border-color: #404040;   font-weight: bold;
+                                      ;">
+
+                                        <td  >Kms compteur : </td>
+                                        <td></td>
+
+                                    </tr>
+                                    <tr  style="border: solid;   height: 100px;  border-width: thin;
+
+                                      border-color: #404040; font-weight: bold;
+                                      ;">
+
+                                        <td>Carburant :</td>
+                                        <td>
+                                            <img     width="121px" th:src="@{images/carburant.png}">
+                                        </td>
+                                    </tr>
+                                    <tr  style="border: solid;    border-width: thin;
+
+                                      border-color: #404040;    height: 60px; font-weight: bold;
+                                      ;">
+
+                                        <td >Commentaire :</td>
+                                        <td></td>
+                                    </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td>
+                                <img th:src="@{images/car.png}"     height="213px"
+                                     width="264px">
+                            </td>
+
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+                    </p>
+                </div>
+                <div class="col">
+                    <table  class="table table-bordered " style="font-size: small;">
+                        <thead >
+                        <tr>
+                            <th scope="col"style="background-color: #d6d6d6;">Signature du Client</th>
+                            <th scope="col"style="background-color: #d6d6d6;">Signature et Cachet du locataire</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr style="font-size: small;  border: solid;     height: 69px;   border-width: thin;
+
+                          border-color: #404040;   font-weight: bold;
+                          ;">
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+
+                        </tr>
+
+
+                        </tbody>
+
+                    </table>
+                    <p style="text-align: center;    border-bottom: solid;
+">
+                    العنوان : حي مولاي عبد الله زنقة 1996 رقم 59 عين الشق الدار البيضاء
+                        </p>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <button onclick="download()" id="mydownloadButton" style="    margin-left: 42%;
+"  type="button" class="btn btn-success btn-lg btn-block">Télécharger le contrat</button>
+
+    </div>
+
+    </div>
+</div>
+
+<script>
+    const download=()=>{
+        const e =document.getElementById("mydownloadButton");
+         e.hidden=true;
+         window.print();
+};
+
+
+
+
+    </script>
+</body>
+</html>

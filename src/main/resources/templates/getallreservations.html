@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+    <title>ATLAS GO CAR</title>
+<link rel="icon" th:href="@{images/faviconicon.ico}" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body class="sb-nav-fixed">
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<nav th:replace="fragments/nav.html :: div.navtop"></nav>
+<div id="layoutSidenav">
+  <nav th:replace="fragments/nav.html :: div.navright"></nav>
+  <div id="layoutSidenav_content">
+    <main>
+      <div class="container-fluid px-4">
+
+          <div th:if="${reservationStatusUpdated}" class="text-success">
+              <div class="alert alert-success" role="alert">
+                  Le status de la réservation a été modifié avec succès !
+              </div>
+          </div>
+        <h5 class="mt-4">Afficher les réservations</h5>
+        <div class="card mb-4">
+          <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            Liste des réservations
+          </div>
+          <div class="card-body">
+            <table id="datatablesSimple">
+              <thead>
+              <tr>
+                <th>source</th>
+                <th>status</th>
+                <th>dateDebut</th>
+                <th>lieuDeLivraison</th>
+                <th>dateFin</th>
+                <th>lieuDeLivraison</th>
+                <th>Marque de la voiture</th>
+                <th>Etat de la voiture</th>
+
+                <th>Nom de l'agence</th>
+
+                <th>Nom du client</th>
+                <th>Montant déja payé EN DH</th>
+                <th>Le Reste EN DH</th>
+                <th>Montant Total EN DH</th>
+                <th>Modifier le status</th>
+                <th>Télechargement</th>
+
+              </tr>
+              </thead>
+              <tfoot>
+              <tr>
+                <th>source</th>
+                <th>status</th>
+                <th>dateDebut</th>
+                <th>lieuDeLivraison</th>
+                <th>dateFin</th>
+                <th>lieuDeLivraison</th>
+                <th>Marque de la voiture</th>
+           <th>Etat de la voiture</th>
+
+                <th>Nom de l'agence</th>
+
+                <th>Nom du client</th>
+                <th>Montant déja payé EN DH</th>
+                <th>Le Reste EN DH</th>
+                <th>Montant Total EN DH</th>
+                <th>Modifier le status</th>
+                <th>Télechargement</th>
+
+              </tr>
+              </tfoot>
+              <tbody>
+              <tr th:each="reservation: ${allReservations}">
+                <td th:text="${reservation.source}" />
+
+
+
+                  <span th:if="${reservation.status == 'Réservée'}">
+                                      <td style="    color: grey; font-weight: bold;"th:text="${reservation.status}" />
+
+                  </span>
+
+                  <span th:if="${reservation.status == 'Confirmée'}">
+                                      <td style="    color: black; font-weight: bold;"th:text="${reservation.status}" />
+
+                  </span>
+                  <span th:if="${reservation.status == 'En cours'}">
+                                      <td style="    color: blue; font-weight: bold;"th:text="${reservation.status}" />
+
+                  </span>
+                  <span th:if="${reservation.status == 'Terminée'}">
+                                      <td style="    color: green; font-weight: bold;"th:text="${reservation.status}" />
+
+                  </span>
+
+                  <span th:if="${reservation.status == 'Annulée'}">
+                                      <td style="    color: red; font-weight: bold;"th:text="${reservation.status}" />
+
+                  </span>
+
+
+                  <td th:text="${#dates.format(reservation.dateDebut, 'dd-MM-yyyy')}"  />
+                <td th:text="${reservation.lieuDeLivraison}" />
+                <td th:text="${#dates.format(reservation.dateFin, 'dd-MM-yyyy')}"  />
+
+                <td th:text="${reservation.lieuDeRestitution}" />
+
+                <td th:text="${reservation.voiture.marque}" />
+                <td th:text="${reservation.etatVoiture}" />
+                <td th:text="${reservation.agence.nom}" />
+                <td th:text="${reservation.client.nom+' '+reservation.client.prenom}" />
+                <td th:text="${reservation.paiement.montantDejaPaye}" />
+                <td th:text="${reservation.paiement.reste}" />
+                <td th:text="${reservation.paiement.montantTotal}" />
+                </td>
+                  <td>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" th:attr="data-bs-target='#exampleModalCenter'+${reservation.id}">
+                      Modifier
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" th:attr="id='exampleModalCenter'+${reservation.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLongTitle">Modifier le status</h5>
+
+                              </div>
+                              <form th:action="@{/statusmodified}" method="post">
+                              <div class="modal-body">
+                                    <input hidden name="reservationId" th:value="${reservation.id}">
+                                  <div class="form-group col-sm">
+                                    <select class="form-select" name="status">
+                                        <option value="Réservée" selected>Réservée</option>
+                                        <option value="Confirmée">Confirmée ( 5% déjà payé ) </option>
+                                        <option value="En cours">En cours</option>
+                                        <option value="Terminée">Terminée</option>
+                                        <option value="Annulée">Annulée</option>
+                                    </select>
+
+                                  </div>
+
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Enregistrer</button>
+                              </div>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+
+</td>
+                <td>                  <button type="button"  class="btn btn-dark "><a style="color: inherit;
+  text-decoration: inherit;" th:href="@{/downloadcontrat(id=${reservation.id})}">Contrat</a></button>
+                </td>
+
+              </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </main>
+    <footer class="py-4 bg-light mt-auto">
+      <div class="container-fluid px-4">
+        <div class="d-flex align-items-center justify-content-between small">
+          <div class="text-muted">Copyright &copy; Your Website 2022</div>
+          <div>
+            <a href="#">Privacy Policy</a>
+            &middot;
+            <a href="#">Terms &amp; Conditions</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script th:src="@{js/scripts.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script th:src="@{assets/demo/chart-area-demo.js}"></script>
+<script th:src="@{assets/demo/chart-bar-demo.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+<script th:src="@{js/datatables-simple-demo.js}"></script>
+</body>
+</html>
